@@ -1,0 +1,98 @@
+import React, {useState} from 'react';
+
+import { Table, Space } from 'antd';
+
+import TableButtonGroup from './tableButtonGroup';
+import 'antd/es/table/style/css';
+
+const TableComponent = (props) => {
+
+    const [currTableData, setTableData] = useState(props.data);
+
+    const openMap = (rowInfo) => {
+        return {
+            onClick: () => {
+                console.log("Map on row: " + rowInfo);
+            }
+        }
+    }
+
+    const editCurrentRow = (rowInfo) => {
+        return {
+            onClick: () => {
+                console.log("Edit on row: " + rowInfo);
+            }
+        }
+    };
+
+    const delCurrentRow = (rowInfo) => {
+        return {
+            onClick: () => {
+                console.log("Edit on row: " + rowInfo);
+            }
+        }
+    };
+
+    const openNotesCurrRow = (rowInfo) => {
+        return {
+            onClick: () => {
+                console.log("Edit on row: " + rowInfo);
+            }
+        }
+    }
+
+    const columnns = [
+        {
+            title: 'Date',
+            dataIndex: 'date',
+            defaultSortOrder: ['descend', 'ascend'],
+            sorter: (a, b) => a.date - b.date
+        },
+        {
+            title: 'Time',
+            dataIndex: 'time',
+            defaultSortOrder: ['descend', 'ascend'],
+            sorter: (a, b) => a.time - b.time
+        },
+        {
+            title: 'With Whom',
+            dataIndex: 'whom',
+            defaultSortOrder: ['descend', 'ascend'],
+            sorter: (a, b) => a.whom.length - b.whom.length
+        },
+        {
+            title: 'Location',
+            dataIndex: 'location',
+            defaultSortOrder: ['descend', 'ascend'],
+            sorter: (a, b) => a.location.length - b.location.length,
+            render: text => <a onClick={openMap}>{text}</a>,
+        },
+        {
+            title: 'Notes',
+            dataIndex: 'notes',
+            render: () => <a onClick={openNotesCurrRow}>See Notes</a>,
+        },
+        {
+            title: 'Edit/Delete?',
+            key: 'action',
+            render: () => (
+            <Space size="middle">
+                <TableButtonGroup 
+                    editFn={editCurrentRow}
+                    delFn={delCurrentRow}
+                />
+            </Space>
+            )
+        }
+    ];
+
+    return(
+        <Table 
+            columns={columnns}
+            pagination={ ['bottomCenter'] }
+            dataSource={currTableData}
+        />
+    );
+};
+
+export default TableComponent;

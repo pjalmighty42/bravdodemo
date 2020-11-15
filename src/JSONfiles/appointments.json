@@ -4,10 +4,7 @@
         "date": "11/12/2021",
         "time": "15:00",
         "whom": "Dr. Moriarty",
-        "location": {
-            "lat":51.505,
-            "long": -0.09
-        },
+        "location": "Tampa, FL",
         "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
     },
     {
@@ -15,10 +12,7 @@
         "date": "11/21/2021",
         "time": "12:00",
         "whom": "Dr. Whatshisface",
-        "location": {
-            "lat":52.505,
-            "long": -1.09
-        },
+        "location": "Largo, FL",
         "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
     },
     {
@@ -26,10 +20,7 @@
         "date": "11/21/2021",
         "time": "10:00",
         "whom": "Dr. Whatsherface",
-        "location": {
-            "lat":52.505,
-            "long": -2.09
-        },
+        "location": "Clearwater, FL",
         "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
     }
 ]

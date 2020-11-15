@@ -1,8 +1,8 @@
 @import './baseVars.scss';
 
 #bh-app-nav{
-    background-color: $redLight;
-    border-bottom: 3px solid $redDark;
+    background-color: $redLight !important;
+    border-bottom: 3px solid $redDark !important;
     ul{
         margin: 0;
         list-style: none;

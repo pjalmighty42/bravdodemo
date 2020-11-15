@@ -3,9 +3,9 @@
     margin-left: .5em;
     margin-right: .5em;
     text-decoration: none;
-    background-color: $redLight;
+    background-color: $redLight !important;
     transition: .3s;
-    color: $baseWhite;
+    color: $baseWhite !important;
     display: flex;
     align-items: center;
    img{
@@ -16,5 +16,5 @@
 }
 
 .bh-link:hover{
-    background-color: $redDark;
+    background-color: $redDark !important;
 }

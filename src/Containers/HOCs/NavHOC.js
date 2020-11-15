@@ -7,7 +7,7 @@ const NavHOC = (props) => {
     return(
         <Fragment>
             <Header id="bh-app-nav">
-                <Menu mode="horizontal">
+                <Menu>
                     {props.children}
                 </Menu>
             </Header>

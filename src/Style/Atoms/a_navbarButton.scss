@@ -4,18 +4,18 @@
     padding: 1em;
     margin-left: .5em;
     margin-right: 1em;
-    border: none;
-    background-color: $redLight;
+    border: none !important;
+    background-color: $redLight !important;
     transition: .3s;
-    color: $baseWhite;
+    color: $baseWhite !important;
 }
 
 .bh-btn:hover{
-    background-color: $redDark;
+    background-color: $redDark !important;
 }
 
 .bh-btn-selected {
     .bh-btn{
-        background-color: $redDark;
+        background-color: $redDark !important;
     }
 }
