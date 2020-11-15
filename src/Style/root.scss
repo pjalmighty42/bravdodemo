@@ -1,0 +1,18 @@
+//Atoms
+@import "./Atoms/a_navbarButton.scss";
+@import "./Atoms/a_navbarLink.scss";
+
+//Molecules
+
+//Organisms
+@import './Organisms/o_NavBar.scss';
+@import './Organisms/o_MainBody.scss';
+@import './Organisms/o_FooterBar.scss';
+
+//Templates
+
+//Pages
+@import './Pages/p_base.scss';
+
+//Base files
+@import './baseVars.scss';

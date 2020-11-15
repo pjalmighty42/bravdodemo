@@ -1,0 +1,33 @@
+@import './baseVars.scss';
+
+body{
+    margin: 0;
+    #root{
+    
+        font-size: 16px;
+        color: $baseBlack;
+    
+        h1, h2, h3, h4, h5, h6, th {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 400;
+        }
+    
+        h1, h2, h3, h4, h5, h6 {
+            color:  $blueDark;
+        }
+    
+        hr{
+            border-color: $redLight;
+        }
+    
+        p, li, a, td {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 300;
+        }
+    
+        code {
+            font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+              monospace;
+          }      
+    }
+}
