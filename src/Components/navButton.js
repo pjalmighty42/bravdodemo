@@ -8,8 +8,10 @@ const NavButton = (props) =>{
     return(
         <Fragment>
             <NavLink
+                activeClassName="bh-btn-selected"
                 className={props.pullRight ? "" : "pull-left"}
-                to={props.path}>
+                to={props.path}
+                exact>
                 <Button
                     className="bh-btn"
                     size={"large"}

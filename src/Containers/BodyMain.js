@@ -10,9 +10,9 @@ const BodyMain = () => {
     return(
         <MainBodyHOC>
             <Switch>
-                <Route path="/" component={BaseMain}/>
-                <Route path="/appointments" component={Appointments}/>
-                <Route path="/medications" component={BaseMain}/>
+                <Route path="/" exact component={BaseMain}/>
+                <Route path="/appointments" exact component={Appointments}/>
+                <Route path="/medications" exact component={BaseMain}/>
             </Switch>
         </MainBodyHOC>
     );

@@ -23,8 +23,10 @@ This application will use:
 - SASS 
     - And in an ATOM Design Principle manner
     - And I used Prepros to compile the SASS files into a CSS file (see root.scss to see how)
-- Google Geo-Locator API for the Location features
+- Leaflet API for the Location features (because it's open source, smaller, and I don't have to sign on for any keys to use)
 - JSON files for the list of Appointments 
+- React-Router-Dom for Routing
+- MomentJS for Time/Date translation/manipulation
 
 ## Also Included
 Since I needed to know how I wanted the page to look, I also chose to do some design work. The work was done via Balsamiq mock-ups. I used a color picker to choose two colors from Bravado Health's logo, a red color and a blue color. I also created two monochromatic lighter colors from these colors (as accompanying colors) for the demo application. 

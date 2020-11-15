@@ -1,15 +1,16 @@
 import React from 'react';
 
+import Moment from 'react-moment';
+
 import FooterHOC from './HOCs/FooterHOC';
 
 const PageFooter = () => {
 
     let date = new Date();
-    let currYr = date.getFullYear();
 
     return(
         <FooterHOC>
-            &#169; {currYr}, Paul Laudun.
+            &#169; <Moment format="YYYY">{date}</Moment>, Paul Laudun.
         </FooterHOC>
     );
 };

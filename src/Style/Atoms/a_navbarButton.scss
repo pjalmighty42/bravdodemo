@@ -13,3 +13,9 @@
 .bh-btn:hover{
     background-color: $redDark;
 }
+
+.bh-btn-selected {
+    .bh-btn{
+        background-color: $redDark;
+    }
+}
