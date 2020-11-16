@@ -20,19 +20,12 @@ const TableComponent = () => {
     }
 
     const editCurrentRow = (rowInfo) => {
-        return {
-            onClick: () => {
-                console.log("Edit on row: " + rowInfo);
-            }
-        }
+        console.log("Edit on row: " + rowInfo);
     };
 
     const delCurrentRow = (rowInfo) => {
-        return {
-            onClick: () => {
-                console.log("Edit on row: " + rowInfo);
-            }
-        }
+        console.log("Delete on row: " + rowInfo);
+        deleteRow(rowInfo);
     };
 
     const openNotesCurrRow = (rowInfo) => {
@@ -77,11 +70,11 @@ const TableComponent = () => {
         {
             title: 'Edit/Delete?',
             key: 'action',
-            render: () => (
+            render: (record) => (
             <Space size="middle">
                 <TableButtonGroup 
-                    editFn={editCurrentRow}
-                    delFn={delCurrentRow}
+                    delFn={()=>delCurrentRow(record.key)}
+                    editFn={()=>editCurrentRow(record.key)}
                 />
             </Space>
             )

@@ -4,6 +4,8 @@ import { Modal, Form, Button, Input, InputNumber, DatePicker, TimePicker } from 
 
 import { RightCircleFilled } from '@ant-design/icons';
 
+import {AddTableData, UserTableDataOut} from '../Observables/TableData';
+
 import StateDDItem from '../Components/stateDropDownItem';
 
 import moment from 'moment';
@@ -29,18 +31,14 @@ const formFooterLayout = {
     },
   };
 
-  const uuidv4 = () => {
-    return 'xxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
-  }
-
 const NewAppModal = () => {
+    const currTableData = UserTableDataOut();
+    const addToTable = AddTableData();
+
     let formRef = React.createRef();
 
     const [isOpen, setIsOpen] = useState(false);
-    const [savedAppItem, setSavedAppItem] = useState({});
+    const [currState, setCurrState] = useState("");
 
     const OpenModal = () => {
         if(formRef.current !== null){
@@ -54,47 +52,36 @@ const NewAppModal = () => {
         setIsOpen(false);
     }
     
-    const AcceptAndClose = (values) => {
+    const AcceptAndClose = (values) => {   
         console.log(values);
-        
-        let currApp = savedAppItem;
-        let fullLoc = {
-            address1: values.address1,
-            address2: typeof values.address2 === 'undefined' ? "" : values.address2,
-            zip: values.zip,
-            state: currApp.state
-        };
 
         let dateOut = moment(values.date._d).format("MM/DD/YYYY");
         let timeOut = moment(values.time._d).format("LT");
 
-        setSavedAppItem({});
-        setSavedAppItem({
-            key: uuidv4,
+        let newItem = {
+            key: currTableData.length + 1,
             date: dateOut,
             time: timeOut,
             whom: values.whom,
-            location: fullLoc,
+            location:  {
+                address1: values.address1,
+                address2: typeof values.address2 === 'undefined' ? "" : values.address2,
+                city: values.city,
+                state: currState,
+                zip: values.zip
+            },
             notes: ""
-        });
+        }
 
-        console.log(savedAppItem);
+        console.log(newItem);
+        addToTable(newItem);
 
         setIsOpen(false);
     }
 
     const SelectStateVal = (value) => {
         console.log(value);
-
-        let currApp = savedAppItem;
-        currApp.location = {
-            address1: "",
-            address2: "",
-            zip: "",
-            state: value
-        };
-
-        setSavedAppItem(currApp);
+        setCurrState(value);
     }
 
     return(

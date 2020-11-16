@@ -1,6 +1,8 @@
 import { RetweetOutlined } from '@ant-design/icons';
 import React, {useState, useContext, createContext} from 'react';
 
+import moment from 'moment';
+
 import tableData from '../JSONfiles/appointments.json';
 
 const TableListContext = createContext();
@@ -33,10 +35,27 @@ function AddTableData(){
 function TableProvider ({children}) {
 
     const tableOut = tableData.map((d, i) => {
+        let timeOut = (time) => {
+            let amPm = "AM";
+            let timeSplit = time.split(":");
+
+            if(parseInt(timeSplit[0]) > 12){
+                amPm = "PM";
+                return (parseInt(timeSplit[0]) - 12) + ":" + timeSplit[1] + " " + amPm;
+            }
+            else if(parseInt(timeSplit[0]) === 12){
+                amPm = "PM";
+                return time + " " + amPm;
+            }
+            else{
+                return time + " " + amPm;
+            }
+        }
+
         return {
             key: i,
-            date: d.date,
-            time: d.time,
+            date: moment(d.date).format("MM/DD/YYYY"),
+            time: timeOut(d.time),
             whom: d.whom,
             location: d.location,
             notes: d.notes
@@ -45,24 +64,23 @@ function TableProvider ({children}) {
 
     const [currTableList, setTableList] = useState(tableOut);
 
-    const RemItemFromTable = (item) => {
-        setTableList(currTableList.map((t, i) => {
-                if(t.id === item.id){
-                    return currTableList.splice(i, 1);
-                }
-                return currTableList;
-            })
-        )
+    const RemItemFromTable = (key) => {
+        let remArr = currTableList.filter((item) => item.key !== key);
+
+        console.log(remArr);
+        setTableList(remArr);
     }
 
     const EditItemFromTable = (item) => {
-        setTableList(currTableList.map((t, i) => {
-                if(t.id === item.id){
-                    return t = item;
-                }
-                return currTableList;
-            })
-        )
+        let changedArr = currTableList.map((t, i) => {
+            if(t.key === item){
+                return t = item;
+            }
+            return t;
+        });
+
+        console.log(changedArr);
+        setTableList(changedArr);
     }
 
     const AddItemToTable = (item) => {
