@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 
 import { Layout } from 'antd';
@@ -10,7 +10,6 @@ import BodyMain from './Containers/BodyMain';
 import PageFooter from './Containers/PageFooter';
 
 function App() {
-
   return (
     <Fragment>
       <BrowserRouter>

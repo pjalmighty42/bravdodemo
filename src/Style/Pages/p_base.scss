@@ -32,4 +32,11 @@ body{
               monospace;
           }      
     }
+
+    .set-single-line-start{
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        flex-direction: row;
+    }
 }

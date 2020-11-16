@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
+
+import { UserTableDataOut, RemoveTableData } from '../Observables/TableData';
 
 import { Table, Space } from 'antd';
 
 import TableButtonGroup from './tableButtonGroup';
 import 'antd/es/table/style/css';
 
-const TableComponent = (props) => {
+const TableComponent = () => {
 
-    const [currTableData, setTableData] = useState(props.data);
+    const deleteRow = RemoveTableData();
 
     const openMap = (rowInfo) => {
         return {
@@ -86,11 +88,13 @@ const TableComponent = (props) => {
         }
     ];
 
+    const tableOut = UserTableDataOut();
+
     return(
         <Table 
             columns={columnns}
-            pagination={ ['bottomCenter'] }
-            dataSource={currTableData}
+            pagination={'bottomCenter'}
+            dataSource={tableOut}
         />
     );
 };

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {createContext} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { TableProvider } from './Observables/TableData'
+ 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <TableProvider>
+      <App />
+    </TableProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
